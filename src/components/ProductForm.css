@@ -1,0 +1,25 @@
+.product-form {
+    margin-bottom: 20px;
+  }
+  
+  .product-form input,
+  .product-form textarea,
+  .product-form select {
+    width: calc(100% - 20px);
+    margin-right: 10px;
+  }
+  
+  .product-form button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .product-form button:hover {
+    background-color: #218838;
+  }
+  
