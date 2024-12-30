@@ -1,0 +1,217 @@
+.subcategories-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .subcategories-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+  }
+  
+  .subcategories-loading,
+  .subcategories-error {
+    text-align: center;
+    font-size: 14px;
+    color: #d9534f;
+  }
+  
+  .subcategories-add-button {
+    display: block;
+    margin: 10px auto 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #5cb85c;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .subcategories-add-button:hover {
+    background-color: #4cae4c;
+  }
+  
+  .subcategories-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .subcategory-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .subcategory-details {
+    display: flex;
+    align-items: center;
+  }
+  
+  .subcategory-image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+  
+  .subcategory-name {
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .subcategory-actions button {
+    margin-left: 5px;
+    padding: 5px 10px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .subcategory-edit-button {
+    background-color: #5bc0de;
+    color: #fff;
+  }
+  
+  .subcategory-edit-button:hover {
+    background-color: #31b0d5;
+  }
+  
+  .subcategory-delete-button {
+    background-color: #d9534f;
+    color: #fff;
+  }
+  
+  .subcategory-delete-button:hover {
+    background-color: #c9302c;
+  }
+  
+  .modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .modal-label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .modal-input {
+    padding: 8px;
+    font-size: 14px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .attributes-section {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .attributes-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .attribute-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .attribute-item input {
+    flex-grow: 1;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+  
+  .attribute-item input:focus {
+    outline: none;
+    border-color: #5bc0de;
+    background-color: #f0f8ff;
+  }
+  
+  .attribute-item button {
+    padding: 6px 12px;
+    font-size: 12px;
+    border: none;
+    background-color: #d9534f;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .attribute-item button:hover {
+    background-color: #c9302c;
+  }
+  
+  .attributes-section input[type="text"] {
+    padding: 8px;
+    font-size: 14px;
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .attributes-section button {
+    padding: 8px 12px;
+    font-size: 14px;
+    background-color: #5cb85c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .attributes-section button:hover {
+    background-color: #4cae4c;
+  }
+  
+  .modal-submit-button {
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #5cb85c;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .modal-submit-button:hover {
+    background-color: #4cae4c;
+  }
+  

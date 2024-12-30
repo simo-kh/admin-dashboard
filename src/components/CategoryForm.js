@@ -18,22 +18,28 @@ const CategoryForm = ({ onAddCategory, onUpdateCategory, editingCategory, setEdi
 
   const fetchAttributes = async (categoryId) => {
     const response = await getCategoryAttributes(token, categoryId);
-    setAttributes(response.data);
+    setAttributes(response.data.map(attr => ({ ...attr, is_displayable: attr.is_displayable || false })));
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setCategoryData({
       ...categoryData,
-      [name]: value
+      [name]: value,
     });
   };
 
   const handleImageChange = (e) => {
     setCategoryData({
       ...categoryData,
-      image: e.target.files[0]
+      image: e.target.files[0],
     });
+  };
+
+  const handleAttributeChange = (index, key, value) => {
+    const updatedAttributes = [...attributes];
+    updatedAttributes[index][key] = value;
+    setAttributes(updatedAttributes);
   };
 
   const handleSubmit = async (e) => {
@@ -50,7 +56,7 @@ const CategoryForm = ({ onAddCategory, onUpdateCategory, editingCategory, setEdi
     const finalCategoryData = {
       ...categoryData,
       image: imageUrl,
-      attributes
+      attributes,
     };
 
     if (editingCategory) {
@@ -65,7 +71,7 @@ const CategoryForm = ({ onAddCategory, onUpdateCategory, editingCategory, setEdi
   };
 
   const handleAddAttribute = () => {
-    setAttributes([...attributes, { name: newAttributeName }]);
+    setAttributes([...attributes, { name: newAttributeName, is_displayable: false }]);
     setNewAttributeName('');
   };
 
@@ -92,25 +98,35 @@ const CategoryForm = ({ onAddCategory, onUpdateCategory, editingCategory, setEdi
         placeholder="Category Image"
       />
       <div>
-        <h4>Attributes</h4>
-        {attributes.map((attribute, index) => (
-          <div key={index}>
-            <input
-              type="text"
-              value={attribute.name}
-              readOnly
-            />
-            <button type="button" onClick={() => handleRemoveAttribute(index)}>Remove</button>
-          </div>
-        ))}
+  <h4>Attributes</h4>
+  {attributes.map((attribute, index) => (
+    <div key={index} className="attribute-row">
+      <input
+        type="text"
+        value={attribute.name}
+        onChange={(e) => handleAttributeChange(index, 'name', e.target.value)}
+        placeholder="Attribute Name"
+      />
+      <label>
         <input
-          type="text"
-          value={newAttributeName}
-          onChange={(e) => setNewAttributeName(e.target.value)}
-          placeholder="New Attribute"
+          type="checkbox"
+          checked={attribute.is_displayable}
+          onChange={(e) => handleAttributeChange(index, 'is_displayable', e.target.checked)}
         />
-        <button type="button" onClick={handleAddAttribute}>Add Attribute</button>
-      </div>
+        Displayable
+      </label>
+      <button type="button" onClick={() => handleRemoveAttribute(index)}>Remove</button>
+    </div>
+  ))}
+  <input
+    type="text"
+    value={newAttributeName}
+    onChange={(e) => setNewAttributeName(e.target.value)}
+    placeholder="New Attribute"
+  />
+  <button type="button" onClick={handleAddAttribute}>Add Attribute</button>
+</div>
+
       <button type="submit">{editingCategory ? 'Update Category' : 'Add Category'}</button>
     </form>
   );

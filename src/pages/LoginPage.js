@@ -1,29 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import './Login.css';
+import { GlobalContext } from '../contexts/GlobalContext';
+import { loginUser } from '../services/auth';
+import '../styles/common.css';
 
-function Login() {
+const LoginPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [error, setError] = useState(null);
+  const { login } = useContext(GlobalContext);
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://127.0.0.1:5000/login', { username, password }, { withCredentials: true });
-      localStorage.setItem('token', response.data.access_token);
+      const { user, token } = await loginUser(username, password);
+      login(user, token);
       navigate('/admin');
-    } catch (error) {
-      setError('Invalid credentials');
+    } catch (err) {
+      setError('Invalid username or password');
     }
   };
 
   return (
-    <div className="login-container">
-      <form onSubmit={handleSubmit} className="login-form">
-        <h2>Login</h2>
+    <div className="login-page">
+      <form className="login-form" onSubmit={handleLogin}>
+        <h1>Login</h1>
+        {error && <p className="error">{error}</p>}
         <input
           type="text"
           placeholder="Username"
@@ -38,11 +41,10 @@ function Login() {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        {error && <p className="error">{error}</p>}
         <button type="submit">Login</button>
       </form>
     </div>
   );
-}
+};
 
-export default Login;
+export default LoginPage;

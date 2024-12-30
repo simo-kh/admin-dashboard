@@ -1,0 +1,28 @@
+/* AdminDashboard.css */
+
+/* Layout */
+.admin-dashboard {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  .admin-dashboard-content {
+    display: flex;
+    flex: 1;
+  }
+  
+  .admin-dashboard-main {
+    flex: 1;
+    padding: 20px;
+    background-color: #f9f9f9;
+    overflow-y: auto;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .admin-dashboard-content {
+      flex-direction: column;
+    }
+  }
+  

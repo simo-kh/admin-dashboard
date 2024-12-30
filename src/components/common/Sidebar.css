@@ -1,0 +1,26 @@
+.sidebar {
+    width: 220px;
+    background-color: #34495e;
+    color: white;
+    padding: 20px 10px;
+  }
+  
+  .sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar-nav li {
+    margin-bottom: 15px;
+  }
+  
+  .sidebar-nav a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .sidebar-nav a.active {
+    font-weight: bold;
+    color: #e74c3c;
+  }
+  
